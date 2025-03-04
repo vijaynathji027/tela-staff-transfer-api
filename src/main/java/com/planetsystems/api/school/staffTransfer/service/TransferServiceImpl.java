@@ -38,7 +38,7 @@ public class TransferServiceImpl implements  TransferService {
     @Override
     @Transactional
     public ResponseDTO<List<TransferDTO>> searchTransfers(Map<String, String> queryMap) {
-        System.out.println(queryMap);
+        
         Optional<String> toSchoolIdOptional = Optional.ofNullable(queryMap.get("toSchoolId"));
         Optional<String> fromSchoolIdOptional = Optional.ofNullable(queryMap.get("fromSchoolId"));
         Optional<String> academicYearOptional = Optional.ofNullable(queryMap.get("academicYear"));
@@ -181,7 +181,7 @@ public class TransferServiceImpl implements  TransferService {
                 })
                 .toList();
 
-//        System.out.println("transferDTOS "+transferDTOS.size());
+//        
 
         return new ResponseDTO<>(transferDTOS);
     }
@@ -206,7 +206,7 @@ public class TransferServiceImpl implements  TransferService {
             throw new AlreadyExistsException("staff has a pending request from " + dto.getFromSchool().getName());
         }
 
-        System.out.println(dto);
+        
 
         CompletableFuture<Transfer> saveTransferCompletableFuture = CompletableFuture.supplyAsync(() -> {
             String requestCode = generateRequestCode();
@@ -247,7 +247,7 @@ public class TransferServiceImpl implements  TransferService {
                     .code(requestCode)
                     .transferCategory(TransferCategory.fromStr(dto.getTransferCategory()).get())
                     .build();
-            System.out.println(transfer);
+            
 
             return transferRepository.save(transfer);
         }).exceptionally(throwable -> {
@@ -310,8 +310,8 @@ public class TransferServiceImpl implements  TransferService {
                             .body(transfer.getStaff().getStaffId())
                             .retrieve()
                             .onStatus(HttpStatusCode::is4xxClientError, (request, response) -> {
-                                System.out.println("APPROVAL");
-                                System.out.println(response);
+                                
+                                
                                 throw new InvalidException(response.getStatusCode().toString());
                             })
                             .body(ResponseDTO.class);

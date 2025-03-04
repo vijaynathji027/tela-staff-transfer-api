@@ -34,19 +34,19 @@ public class StaffTransferRunner implements CommandLineRunner {
 ////                .requestStatus(RequestStatus.PENDING.getStatus())
 //                .build();
 ////
-//        System.out.println(dto);
+//        
 //
-//        System.out.println(objectMapper.writeValueAsString(dto));
+//        
 //
 ////
-////        System.out.println("hello world");
+////        
 //        boolean transferExits = transferRepository.existsByRequestStatusAndFromSchool_FromTelaNumberAndStaff_FirstNameOrStaff_LastNameOrStaff_PhoneNumberOrStaff_Email
 //                (RequestStatus.PENDING, dto.getFromSchool().getTelaNumber(),
 //                        dto.getStaff().getFirstName(),
 //                        dto.getStaff().getLastName(),
 //                        dto.getStaff().getPhoneNumber(), dto.getStaff().getEmail());
 //
-//        System.out.println("transferExits "+ transferExits);
+//        
 //
 //        if (!transferExits){
 //            Transfer transfer = Transfer.builder()
@@ -80,7 +80,7 @@ public class StaffTransferRunner implements CommandLineRunner {
 //
 //
 //
-//            System.out.println("saved  "+transferRepository.save(transfer));
+//            
 //
 //        }
 //
@@ -91,7 +91,7 @@ public class StaffTransferRunner implements CommandLineRunner {
 //
 //        List<Transfer> allTransfers = (List<Transfer>) transferRepository.findAll(booleanExpression);
 //
-//        System.out.println(allTransfers);
+//        
 
     }
 

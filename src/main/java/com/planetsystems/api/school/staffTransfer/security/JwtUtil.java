@@ -53,8 +53,7 @@ public class JwtUtil {
 		} catch (ExpiredJwtException e) {
 			return e.getClaims();
 		} catch (Exception e) {
-			System.out.println("Invalid JWT Token");
-			return null;
+			throw new InvalidTokenException(AppMessages.INVALID_TOKEN);
 		}
 	}
 
